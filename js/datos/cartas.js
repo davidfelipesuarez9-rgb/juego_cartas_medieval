@@ -306,5 +306,67 @@ export const cartas = [
     dano: 42,
     habilidades: ['golpe-critico', 'aliento-de-sombras'],
     descripcion: 'Ningún reino se atreve a pronunciar su nombre; los que lo hicieron ya no están para arrepentirse.'
+  },
+    // ===== SANADORES =====
+  {
+    id: 'acolito-luz-gris',
+    nombre: 'Acólito de la Luz Gris',
+    emoji: '🕯️',
+    tipo: 'sanador',
+    rareza: 'comun',
+    vidaMaxima: 88,
+    defensa: 13,
+    dano: 8,
+    habilidades: ['luz-sagrada'],
+    descripcion: 'Sirve a un dios que ya nadie recuerda, pero sus plegarias todavía cierran heridas.'
+  },
+  {
+    id: 'curandera-guerra',
+    nombre: 'Curandera de Guerra',
+    emoji: '✨',
+    tipo: 'sanador',
+    rareza: 'comun',
+    vidaMaxima: 92,
+    defensa: 14,
+    dano: 9,
+    habilidades: ['luz-sagrada'],
+    descripcion: 'Ha visto caer a más soldados de los que ha logrado salvar, y eso la ha hecho más decidida, no menos.'
+  },
+  {
+    id: 'sacerdotisa-alba-negra',
+    nombre: 'Sacerdotisa del Alba Negra',
+    emoji: '🖤',
+    tipo: 'sanador',
+    rareza: 'rara',
+    vidaMaxima: 98,
+    defensa: 16,
+    dano: 10,
+    habilidades: ['luz-sagrada', 'escudo-ancestral'],
+    descripcion: 'Su fe es tan oscura como su túnica, pero cura con la misma certeza que cualquier luz verdadera.'
+  },
+  {
+    id: 'monje-reliquias',
+    nombre: 'Monje de las Reliquias',
+    emoji: '⛩️',
+    tipo: 'sanador',
+    rareza: 'epica',
+    vidaMaxima: 108,
+    defensa: 18,
+    dano: 11,
+    habilidades: ['luz-sagrada', 'escudo-ancestral'],
+    descripcion: 'Guarda huesos sagrados de héroes olvidados; su poder de sanar es tan antiguo como sus reliquias.'
+  },
+  {
+    id: 'sumo-sacerdote-juicio-final',
+    nombre: 'Sumo Sacerdote del Juicio Final',
+    emoji: '⚖️',
+    tipo: 'sanador',
+    rareza: 'legendaria',
+    vidaMaxima: 120,
+    defensa: 22,
+    dano: 13,
+    habilidades: ['luz-sagrada', 'debilitar'],
+    descripcion: 'Decide en cada batalla quién merece ser salvado y quién merece caer; pocos cuestionan su juicio dos veces.'
   }
+
 ];

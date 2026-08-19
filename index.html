@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reinos en Batalla</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/paginas/coleccion.css">
+  <link rel="stylesheet" href="css/paginas/batalla.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body>
+
+  <main id="app">
+
+    <section id="pantalla-bienvenida" data-pantalla="bienvenida" aria-labelledby="titulo-bienvenida">
+      <h1 id="titulo-bienvenida">Reinos en Batalla</h1>
+      <p>Bienvenido, guerrero. Antes de comenzar, dinos tu nombre y elige tu estirpe.</p>
+
+      <form id="formulario-bienvenida" novalidate>
+        <div class="campo-formulario">
+          <label for="entrada-nombre">Nombre de guerrero</label>
+          <input type="text" id="entrada-nombre" name="nombre" maxlength="20" autocomplete="off">
+          <p id="error-nombre" class="mensaje-error" role="alert" hidden></p>
+        </div>
+
+        <div class="campo-formulario">
+          <span id="titulo-avatares">Elige tu avatar</span>
+          <div id="selector-avatares" role="group" aria-labelledby="titulo-avatares"></div>
+          <p id="error-avatar" class="mensaje-error" role="alert" hidden></p>
+        </div>
+
+        <button type="submit">Comenzar aventura</button>
+      </form>
+    </section>
+
+    <section id="pantalla-menu" data-pantalla="menu" aria-labelledby="titulo-menu" hidden>
+      <h2 id="titulo-menu">Menú Principal</h2>
+      <nav aria-label="Menú principal del juego">
+        <button type="button" data-navegar="coleccion">Mis Cartas</button>
+        <button type="button" data-navegar="batalla">Jugar Batalla</button>
+        <button type="button" data-navegar="perfil">Perfil</button>
+        <button type="button" data-navegar="historial">Historial</button>
+        <button type="button" data-navegar="ranking">Ranking</button>
+      </nav>
+    </section>
+
+    <section id="pantalla-coleccion" data-pantalla="coleccion" aria-labelledby="titulo-coleccion" hidden>
+      <h2 id="titulo-coleccion">Elige tu equipo</h2>
+      <p id="contador-seleccion" role="status">0 / 5 cartas seleccionadas</p>
+      <div id="grilla-cartas" class="grilla-cartas"></div>
+      <nav>
+        <button type="button" data-navegar="menu">Volver</button>
+        <button type="button" id="btn-confirmar-equipo" disabled>Confirmar equipo</button>
+      </nav>
+    </section>
+
+    <section id="pantalla-batalla" data-pantalla="batalla" aria-labelledby="titulo-batalla" hidden>
+      <h2 id="titulo-batalla">Batalla</h2>
+
+      <div class="zona-batalla">
+        <div class="carta-batalla" id="carta-jugador">
+          <span class="carta-batalla-emoji" id="emoji-jugador"></span>
+          <h3 id="nombre-jugador"></h3>
+          <div class="barra-vida"><div class="barra-vida-relleno" id="vida-jugador"></div></div>
+          <p id="texto-vida-jugador"></p>
+        </div>
+        <div class="carta-batalla" id="carta-maquina">
+          <span class="carta-batalla-emoji" id="emoji-maquina"></span>
+          <h3 id="nombre-maquina"></h3>
+          <div class="barra-vida"><div class="barra-vida-relleno" id="vida-maquina"></div></div>
+          <p id="texto-vida-maquina"></p>
+        </div>
+      </div>
+
+      <div id="acciones-batalla">
+        <button type="button" id="btn-atacar">Atacar</button>
+        <div id="botones-habilidades"></div>
+        <button type="button" id="btn-defender">Defender</button>
+      </div>
+
+      <div id="seleccion-cambio" hidden>
+        <p>Tu carta fue derrotada. Elige otra:</p>
+        <div id="opciones-cambio"></div>
+      </div>
+
+      <div id="resultado-batalla" role="alert" hidden>
+        <p id="texto-resultado"></p>
+        <button type="button" data-navegar="menu">Volver al menú</button>
+      </div>
+
+      <div id="registro-batalla" aria-live="polite"></div>
+    </section>
+
+    <section id="pantalla-perfil" data-pantalla="perfil" aria-labelledby="titulo-perfil" hidden>
+      <h2 id="titulo-perfil">Perfil</h2>
+      <div id="datos-perfil"></div>
+      <button type="button" data-navegar="menu">Volver al menú</button>
+    </section>
+
+    <section id="pantalla-historial" data-pantalla="historial" aria-labelledby="titulo-historial" hidden>
+      <h2 id="titulo-historial">Historial de Batallas</h2>
+      <div id="lista-historial"></div>
+      <button type="button" data-navegar="menu">Volver al menú</button>
+    </section>
+
+    <section id="pantalla-ranking" data-pantalla="ranking" aria-labelledby="titulo-ranking" hidden>
+      <h2 id="titulo-ranking">Ranking</h2>
+      <div id="lista-ranking"></div>
+      <button type="button" data-navegar="menu">Volver al menú</button>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/principal.js"></script>
+</body>
+</html>

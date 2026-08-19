@@ -1,0 +1,84 @@
+@keyframes pulso-seleccion {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes sacudida {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.carta-batalla.sacudida {
+  animation: sacudida 0.4s ease;
+}
+
+@keyframes flotar-numero {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, -40px); opacity: 0; }
+}
+
+.numero-flotante {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: flotar-numero 0.8s ease forwards;
+  pointer-events: none;
+}
+
+.numero-flotante.dano { color: #ff5555; }
+.numero-flotante.curacion { color: #55ff88; }
+#fondo-animado {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes flotar-ascender {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.ascua {
+  position: absolute;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffcc66, #ff5500);
+  border-radius: 50%;
+  animation: flotar-ascender linear infinite;
+}
+
+@keyframes brillo-carta {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.carta--legendaria .carta-retrato,
+.carta--epica .carta-retrato {
+  overflow: hidden;
+}
+
+.carta--legendaria .carta-retrato::after,
+.carta--epica .carta-retrato::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: brillo-carta 3s linear infinite;
+}

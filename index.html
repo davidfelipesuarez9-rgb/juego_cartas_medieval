@@ -44,7 +44,6 @@
     </section>
 
     <section id="pantalla-menu" data-pantalla="menu" aria-labelledby="titulo-menu" hidden>
-      <button type="button" data-navegar="coleccion">Colección</button>
       <h2 id="titulo-menu">Menú Principal</h2>
       <nav aria-label="Menú principal del juego">
         <button type="button" data-navegar="coleccion">Mis Cartas</button>
@@ -69,12 +68,14 @@
       <h2 id="titulo-batalla">Batalla</h2>
 
       <div class="zona-batalla">
-        <div class="carta-batalla">
+        <div class="carta-batalla" id="carta-jugador">
+          <span class="carta-batalla-emoji" id="emoji-jugador"></span>
           <h3 id="nombre-jugador"></h3>
           <div class="barra-vida"><div class="barra-vida-relleno" id="vida-jugador"></div></div>
           <p id="texto-vida-jugador"></p>
         </div>
-        <div class="carta-batalla">
+        <div class="carta-batalla" id="carta-maquina">
+          <span class="carta-batalla-emoji" id="emoji-maquina"></span>
           <h3 id="nombre-maquina"></h3>
           <div class="barra-vida"><div class="barra-vida-relleno" id="vida-maquina"></div></div>
           <p id="texto-vida-maquina"></p>
@@ -102,16 +103,19 @@
 
     <section id="pantalla-perfil" data-pantalla="perfil" aria-labelledby="titulo-perfil" hidden>
       <h2 id="titulo-perfil">Perfil</h2>
+      <div id="datos-perfil"></div>
       <button type="button" data-navegar="menu">Volver al menú</button>
     </section>
 
     <section id="pantalla-historial" data-pantalla="historial" aria-labelledby="titulo-historial" hidden>
       <h2 id="titulo-historial">Historial de Batallas</h2>
+      <div id="lista-historial"></div>
       <button type="button" data-navegar="menu">Volver al menú</button>
     </section>
 
     <section id="pantalla-ranking" data-pantalla="ranking" aria-labelledby="titulo-ranking" hidden>
       <h2 id="titulo-ranking">Ranking</h2>
+      <div id="lista-ranking"></div>
       <button type="button" data-navegar="menu">Volver al menú</button>
     </section>
 

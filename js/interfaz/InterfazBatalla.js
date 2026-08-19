@@ -3,6 +3,12 @@ import { GestorBatalla } from '../juego/GestorBatalla.js';
 import { obtenerHabilidadPorId } from '../datos/habilidades.js';
 import { calcularPuntuacion } from '../juego/SistemaPuntuacion.js';
 import { servicioAlmacenamiento } from '../servicios/ServicioAlmacenamiento.js';
+import { servicioHistorialBatallas } from '../servicios/ServicioHistorialBatallas.js';
+
+const ICONOS_CATEGORIA = {
+  ataque: '⚔️', buff: '💪', curacion: '💚', debuff: '☠️',
+  danoContinuo: '☣️', proteccion: '🛡️', probabilidad: '🎲'
+};
 
 let gestorBatalla = null;
 let procesando = false;
@@ -32,7 +38,8 @@ function renderizarHabilidades(carta) {
     const habilidad = obtenerHabilidadPorId(idHabilidad);
     const boton = document.createElement('button');
     boton.type = 'button';
-    boton.textContent = habilidad.nombre;
+    const icono = ICONOS_CATEGORIA[habilidad.categoria] || '✨';
+    boton.textContent = `${icono} ${habilidad.nombre}`;
     boton.addEventListener('click', () => ejecutarTurno({ tipo: 'habilidad', idHabilidad }));
     contenedor.appendChild(boton);
   });
@@ -41,6 +48,8 @@ function renderizarHabilidades(carta) {
 function actualizarVista() {
   document.getElementById('nombre-jugador').textContent = gestorBatalla.cartaJugador.nombre;
   document.getElementById('nombre-maquina').textContent = gestorBatalla.cartaMaquina.nombre;
+  document.getElementById('emoji-jugador').textContent = gestorBatalla.cartaJugador.simbolo;
+  document.getElementById('emoji-maquina').textContent = gestorBatalla.cartaMaquina.simbolo;
   actualizarBarra('vida-jugador', 'texto-vida-jugador', gestorBatalla.cartaJugador);
   actualizarBarra('vida-maquina', 'texto-vida-maquina', gestorBatalla.cartaMaquina);
   renderizarHabilidades(gestorBatalla.cartaJugador);
@@ -48,6 +57,22 @@ function actualizarVista() {
   const registro = document.getElementById('registro-batalla');
   registro.innerHTML = gestorBatalla.registro.map(linea => `<p>${linea}</p>`).join('');
   registro.scrollTop = registro.scrollHeight;
+}
+
+function mostrarEfecto(idContenedor, delta) {
+  if (delta === 0) return;
+  const contenedor = document.getElementById(idContenedor);
+  if (!contenedor) return;
+
+  const numero = document.createElement('span');
+  numero.className = delta < 0 ? 'numero-flotante dano' : 'numero-flotante curacion';
+  numero.textContent = delta < 0 ? delta : `+${delta}`;
+  contenedor.appendChild(numero);
+  numero.addEventListener('animationend', () => numero.remove());
+
+  contenedor.classList.remove('sacudida');
+  void contenedor.offsetWidth;
+  contenedor.classList.add('sacudida');
 }
 
 function mostrarSeleccionCambio() {
@@ -81,6 +106,14 @@ function finalizarBatalla(resultado) {
     servicioAlmacenamiento.guardarPerfil(jugador);
   }
 
+  servicioHistorialBatallas.guardarBatalla({
+    fecha: new Date().toISOString(),
+    resultado,
+    puntos,
+    cartasEnemigasDerrotadas,
+    jugador: jugador ? jugador.nombre : 'Desconocido'
+  });
+
   document.getElementById('texto-resultado').textContent =
     gano ? `¡Victoria! Ganaste ${puntos} puntos.` : `Derrota... Ganaste ${puntos} puntos igual.`;
   document.getElementById('resultado-batalla').hidden = false;
@@ -90,7 +123,15 @@ async function ejecutarTurno(accion) {
   if (procesando || !gestorBatalla || gestorBatalla.terminada) return;
   procesando = true;
 
+  const cartaJugadorAntes = gestorBatalla.cartaJugador;
+  const cartaMaquinaAntes = gestorBatalla.cartaMaquina;
+  const vidaJugadorAntes = cartaJugadorAntes.vidaActual;
+  const vidaMaquinaAntes = cartaMaquinaAntes.vidaActual;
+
   const resultado = await gestorBatalla.turnoJugador(accion);
+
+  mostrarEfecto('carta-maquina', cartaMaquinaAntes.vidaActual - vidaMaquinaAntes);
+  mostrarEfecto('carta-jugador', cartaJugadorAntes.vidaActual - vidaJugadorAntes);
   actualizarVista();
 
   if (resultado.fin) return finalizarBatalla(resultado.resultado);

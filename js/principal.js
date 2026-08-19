@@ -1,13 +1,10 @@
 import { gestorPantallas } from './interfaz/GestorPantallas.js';
-import { Jugador } from './modelos/Jugador.js';
-import { servicioAlmacenamiento } from './servicios/ServicioAlmacenamiento.js';
+import { validarNombreJugador } from './utilidades/validadores.js';
 
 gestorPantallas.inicializar();
 
-// Prueba temporal del ServicioAlmacenamiento (la quitamos en el Paso 3)
-const jugadorPrueba = new Jugador({ nombreUsuario: 'David', avatar: 'vampiro' });
-jugadorPrueba.registrarVictoria(12);
-servicioAlmacenamiento.guardarPerfil(jugadorPrueba);
-
-console.log('Perfiles guardados:', servicioAlmacenamiento.obtenerPerfiles());
-console.log('Busqueda por nombre (minusculas):', servicioAlmacenamiento.buscarPerfilPorNombre('david'));
+// Prueba temporal de validadores.js (la quitamos en el Paso 4)
+console.log(validarNombreJugador(''));
+console.log(validarNombreJugador('Da'));
+console.log(validarNombreJugador('David123'));
+console.log(validarNombreJugador('David@123'));

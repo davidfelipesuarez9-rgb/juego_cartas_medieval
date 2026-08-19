@@ -22,8 +22,23 @@
 
     <section id="pantalla-bienvenida" data-pantalla="bienvenida" aria-labelledby="titulo-bienvenida">
       <h1 id="titulo-bienvenida">Reinos en Batalla</h1>
-      <p>Bienvenido, guerrero. Antes de comenzar, dinos tu nombre.</p>
-      <button type="button" data-navegar="menu">Entrar (temporal)</button>
+      <p>Bienvenido, guerrero. Antes de comenzar, dinos tu nombre y elige tu estirpe.</p>
+
+      <form id="formulario-bienvenida" novalidate>
+        <div class="campo-formulario">
+          <label for="entrada-nombre">Nombre de guerrero</label>
+          <input type="text" id="entrada-nombre" name="nombre" maxlength="20" autocomplete="off">
+          <p id="error-nombre" class="mensaje-error" role="alert" hidden></p>
+        </div>
+
+        <div class="campo-formulario">
+          <span id="titulo-avatares">Elige tu avatar</span>
+          <div id="selector-avatares" role="group" aria-labelledby="titulo-avatares"></div>
+          <p id="error-avatar" class="mensaje-error" role="alert" hidden></p>
+        </div>
+
+        <button type="submit">Comenzar aventura</button>
+      </form>
     </section>
 
     <section id="pantalla-menu" data-pantalla="menu" aria-labelledby="titulo-menu" hidden>

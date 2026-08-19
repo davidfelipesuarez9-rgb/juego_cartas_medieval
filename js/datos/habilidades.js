@@ -1,0 +1,116 @@
+// Catálogo de habilidades. Cada carta las referencia por su "id".
+// El significado exacto de "valor" depende de la categoria; lo interpreta
+// MotorHabilidades.js, que construimos en la Fase 10.
+export const habilidades = [
+  {
+    id: 'ataque-basico',
+    nombre: 'Ataque Básico',
+    categoria: 'ataque',
+    valor: 0,
+    cooldown: 0,
+    descripcion: 'Un golpe directo, sin ningún efecto adicional.',
+  },
+  {
+    id: 'golpe-real',
+    nombre: 'Golpe Real',
+    categoria: 'ataque',
+    valor: 15,
+    cooldown: 0,
+    descripcion: 'Un golpe cargado con toda la fuerza de un guerrero caído.',
+  },
+  {
+    id: 'hacerse-fuerte',
+    nombre: 'Hacerse Fuerte',
+    categoria: 'buff',
+    valor: 20,
+    cooldown: 2,
+    descripcion: 'Aumenta temporalmente su propia defensa.',
+  },
+  {
+    id: 'escudo-ancestral',
+    nombre: 'Escudo Ancestral',
+    categoria: 'proteccion',
+    valor: 50,
+    cooldown: 2,
+    descripcion: 'Reduce a la mitad el próximo golpe que reciba.',
+  },
+  {
+    id: 'flecha-certera',
+    nombre: 'Flecha Certera',
+    categoria: 'ataque',
+    valor: 20,
+    cooldown: 1,
+    descripcion: 'Un disparo preciso que perfora parte de la defensa enemiga.',
+  },
+  {
+    id: 'lluvia-de-flechas',
+    nombre: 'Lluvia de Flechas',
+    categoria: 'danoContinuo',
+    valor: 8,
+    duracion: 3,
+    cooldown: 3,
+    descripcion: 'Hiere al enemigo durante varios turnos.',
+  },
+  {
+    id: 'bola-de-fuego',
+    nombre: 'Bola de Fuego',
+    categoria: 'ataque',
+    valor: 30,
+    cooldown: 2,
+    descripcion: 'Daño mágico que ignora parte de la defensa enemiga.',
+  },
+  {
+    id: 'drenar-vida',
+    nombre: 'Drenar Vida',
+    categoria: 'curacion',
+    valor: 15,
+    cooldown: 2,
+    descripcion: 'Roba vida del enemigo para curarse a sí mismo.',
+  },
+  {
+    id: 'golpe-critico',
+    nombre: 'Golpe Crítico',
+    categoria: 'probabilidad',
+    valor: 40,
+    probabilidad: 35,
+    cooldown: 1,
+    descripcion: 'Probabilidad de infligir el doble de daño.',
+  },
+  {
+    id: 'veneno-mortal',
+    nombre: 'Veneno Mortal',
+    categoria: 'danoContinuo',
+    valor: 10,
+    duracion: 3,
+    cooldown: 3,
+    descripcion: 'Envenena al objetivo, causando daño durante varios turnos.',
+  },
+  {
+    id: 'luz-sagrada',
+    nombre: 'Luz Sagrada',
+    categoria: 'curacion',
+    valor: 25,
+    cooldown: 2,
+    descripcion: 'Restaura una porción considerable de vida.',
+  },
+  {
+    id: 'debilitar',
+    nombre: 'Debilitar',
+    categoria: 'debuff',
+    valor: 15,
+    cooldown: 2,
+    descripcion: 'Reduce el daño del enemigo durante un tiempo.',
+  },
+  {
+    id: 'aliento-de-sombras',
+    nombre: 'Aliento de Sombras',
+    categoria: 'ataque',
+    valor: 35,
+    cooldown: 3,
+    descripcion: 'Un torrente de fuego oscuro que consume al enemigo.',
+  },
+];
+
+export function obtenerHabilidadPorId(id) {
+  return habilidades.find((habilidad) => habilidad.id === id);
+}

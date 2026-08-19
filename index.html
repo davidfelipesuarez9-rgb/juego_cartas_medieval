@@ -6,6 +6,7 @@
   <title>Reinos en Batalla</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="css/paginas/coleccion.css">
+  <link rel="stylesheet" href="css/paginas/batalla.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,18 +56,48 @@
     </section>
 
     <section id="pantalla-coleccion" data-pantalla="coleccion" aria-labelledby="titulo-coleccion" hidden>
-  <h2 id="titulo-coleccion">Elige tu equipo</h2>
-  <p id="contador-seleccion" role="status">0 / 5 cartas seleccionadas</p>
-  <div id="grilla-cartas" class="grilla-cartas"></div>
-  <nav>
-    <button type="button" data-navegar="menu">Volver</button>
-    <button type="button" id="btn-confirmar-equipo" disabled>Confirmar equipo</button>
-  </nav>
-</section>
+      <h2 id="titulo-coleccion">Elige tu equipo</h2>
+      <p id="contador-seleccion" role="status">0 / 5 cartas seleccionadas</p>
+      <div id="grilla-cartas" class="grilla-cartas"></div>
+      <nav>
+        <button type="button" data-navegar="menu">Volver</button>
+        <button type="button" id="btn-confirmar-equipo" disabled>Confirmar equipo</button>
+      </nav>
+    </section>
 
     <section id="pantalla-batalla" data-pantalla="batalla" aria-labelledby="titulo-batalla" hidden>
       <h2 id="titulo-batalla">Batalla</h2>
-      <button type="button" data-navegar="menu">Volver al menú</button>
+
+      <div class="zona-batalla">
+        <div class="carta-batalla">
+          <h3 id="nombre-jugador"></h3>
+          <div class="barra-vida"><div class="barra-vida-relleno" id="vida-jugador"></div></div>
+          <p id="texto-vida-jugador"></p>
+        </div>
+        <div class="carta-batalla">
+          <h3 id="nombre-maquina"></h3>
+          <div class="barra-vida"><div class="barra-vida-relleno" id="vida-maquina"></div></div>
+          <p id="texto-vida-maquina"></p>
+        </div>
+      </div>
+
+      <div id="acciones-batalla">
+        <button type="button" id="btn-atacar">Atacar</button>
+        <div id="botones-habilidades"></div>
+        <button type="button" id="btn-defender">Defender</button>
+      </div>
+
+      <div id="seleccion-cambio" hidden>
+        <p>Tu carta fue derrotada. Elige otra:</p>
+        <div id="opciones-cambio"></div>
+      </div>
+
+      <div id="resultado-batalla" role="alert" hidden>
+        <p id="texto-resultado"></p>
+        <button type="button" data-navegar="menu">Volver al menú</button>
+      </div>
+
+      <div id="registro-batalla" aria-live="polite"></div>
     </section>
 
     <section id="pantalla-perfil" data-pantalla="perfil" aria-labelledby="titulo-perfil" hidden>

@@ -1,7 +1,6 @@
 import { cartas } from '../datos/cartas.js';
 import { crearElementoCarta } from './RenderizadorCartas.js';
 import { estadoJuego } from '../nucleo/EstadoJuego.js';
-import { gestorPantallas } from './GestorPantallas.js';
 
 const MAX_SELECCION = 5;
 let seleccionadas = [];
@@ -45,11 +44,9 @@ export const interfazColeccion = {
     renderizarGrilla();
     actualizarContador();
     document.getElementById('btn-confirmar-equipo').addEventListener('click', () => {
-      document.getElementById('btn-confirmar-equipo').addEventListener('click', () => {
-  const equipo = cartas.filter(carta => seleccionadas.includes(carta.id));
-  estadoJuego.establecer('equipoJugador', equipo);
-  gestorPantallas.mostrar('menu');
-});
+      const equipo = cartas.filter(carta => seleccionadas.includes(carta.id));
+      estadoJuego.establecer('equipoJugador', equipo);
+      document.querySelector('#pantalla-coleccion [data-navegar="menu"]').click();
     });
   },
   obtenerSeleccion() {

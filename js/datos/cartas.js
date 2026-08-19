@@ -245,5 +245,66 @@ export const cartas = [
     dano: 37,
     habilidades: ['bola-de-fuego', 'drenar-vida'],
     descripcion: 'Habla en un idioma que murió hace mil años, y aun así el fuego que invoca sigue entendiendo cada palabra.'
+  },
+    // ===== ASESINOS =====
+  {
+    id: 'daga-silenciosa',
+    nombre: 'Daga Silenciosa',
+    emoji: '🗡️',
+    tipo: 'asesino',
+    rareza: 'comun',
+    vidaMaxima: 58,
+    defensa: 7,
+    dano: 29,
+    habilidades: ['golpe-critico'],
+    descripcion: 'Nunca se anuncia; su enemigo solo se entera de que llegó cuando ya es demasiado tarde.'
+  },
+  {
+    id: 'sombra-callejon',
+    nombre: 'Sombra del Callejón',
+    emoji: '👤',
+    tipo: 'asesino',
+    rareza: 'comun',
+    vidaMaxima: 60,
+    defensa: 8,
+    dano: 30,
+    habilidades: ['golpe-critico'],
+    descripcion: 'Se mueve entre los rincones donde ni la luz de las antorchas se atreve a entrar.'
+  },
+  {
+    id: 'verdugo-encapuchado',
+    nombre: 'Verdugo Encapuchado',
+    emoji: '🕶️',
+    tipo: 'asesino',
+    rareza: 'rara',
+    vidaMaxima: 64,
+    defensa: 9,
+    dano: 33,
+    habilidades: ['golpe-critico', 'veneno-mortal'],
+    descripcion: 'Cobra sus contratos en silencio absoluto; jamás ha dejado un testigo vivo.'
+  },
+  {
+    id: 'espectro-asesino',
+    nombre: 'Espectro Asesino',
+    emoji: '👻',
+    tipo: 'asesino',
+    rareza: 'rara',
+    vidaMaxima: 66,
+    defensa: 9,
+    dano: 35,
+    habilidades: ['golpe-critico', 'veneno-mortal'],
+    descripcion: 'Ni siquiera está seguro de si sigue vivo; solo sabe que su daga aún encuentra su marca.'
+  },
+  {
+    id: 'el-innombrable',
+    nombre: 'El Innombrable',
+    emoji: '🕷️',
+    tipo: 'asesino',
+    rareza: 'legendaria',
+    vidaMaxima: 78,
+    defensa: 11,
+    dano: 42,
+    habilidades: ['golpe-critico', 'aliento-de-sombras'],
+    descripcion: 'Ningún reino se atreve a pronunciar su nombre; los que lo hicieron ya no están para arrepentirse.'
   }
 ];

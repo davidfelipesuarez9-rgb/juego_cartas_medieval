@@ -9,4 +9,4 @@ interfazBienvenida.inicializar();
 
 // --- Prueba temporal: catálogo de cartas (Fase 6) ---
 console.log('Cartas cargadas:', cartas.length);
-console.log('Última carta:', cartas[cartas.length - 1]);
+console.log('Arqueros:', cartas.filter(carta => carta.tipo === 'arquero').length);

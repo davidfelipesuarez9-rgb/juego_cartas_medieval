@@ -123,5 +123,66 @@ export const cartas = [
     dano: 27,
     habilidades: ['golpe-real', 'hacerse-fuerte'],
     descripcion: 'Invicto en cien duelos hasta el día de su muerte; su leyenda lo trajo de vuelta para pelear cien más.'
+  },
+    // ===== ARQUEROS =====
+  {
+    id: 'cazador-sombras',
+    nombre: 'Cazador de las Sombras',
+    emoji: '🏹',
+    tipo: 'arquero',
+    rareza: 'comun',
+    vidaMaxima: 78,
+    defensa: 9,
+    dano: 23,
+    habilidades: ['flecha-certera'],
+    descripcion: 'No falla dos veces; su primer error suele ser también el último de su presa.'
+  },
+  {
+    id: 'ojo-cuervo',
+    nombre: 'Ojo de Cuervo',
+    emoji: '🐦\u200d⬛',
+    tipo: 'arquero',
+    rareza: 'comun',
+    vidaMaxima: 82,
+    defensa: 10,
+    dano: 24,
+    habilidades: ['flecha-certera'],
+    descripcion: 'Ve en la oscuridad tan bien como en pleno día; ninguna carta oculta escapa a su mirada.'
+  },
+  {
+    id: 'rastreador-lunar',
+    nombre: 'Rastreador Lunar',
+    emoji: '🌙',
+    tipo: 'arquero',
+    rareza: 'rara',
+    vidaMaxima: 88,
+    defensa: 12,
+    dano: 27,
+    habilidades: ['flecha-certera', 'lluvia-de-flechas'],
+    descripcion: 'Solo caza bajo la luna llena, cuando su puntería se vuelve casi sobrenatural.'
+  },
+  {
+    id: 'flecha-ocaso',
+    nombre: 'Flecha del Ocaso',
+    emoji: '🍂',
+    tipo: 'arquero',
+    rareza: 'rara',
+    vidaMaxima: 90,
+    defensa: 13,
+    dano: 28,
+    habilidades: ['flecha-certera', 'lluvia-de-flechas'],
+    descripcion: 'Cada disparo suyo lleva el peso de un reino caído al anochecer.'
+  },
+  {
+    id: 'arquera-noche-eterna',
+    nombre: 'Arquera de la Noche Eterna',
+    emoji: '⭐',
+    tipo: 'arquero',
+    rareza: 'epica',
+    vidaMaxima: 98,
+    defensa: 15,
+    dano: 32,
+    habilidades: ['flecha-certera', 'lluvia-de-flechas'],
+    descripcion: 'Ha cazado bajo un cielo sin sol durante tanto tiempo que ya no recuerda el calor del día.'
   }
 ];

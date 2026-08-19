@@ -1,0 +1,27 @@
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto-claro);
+  font-family: var(--fuente-texto);
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-lg);
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--color-dorado);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--espacio-md);
+}
+
+p {
+  margin-bottom: var(--espacio-md);
+  max-width: 60ch;
+}

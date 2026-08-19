@@ -1,0 +1,19 @@
+:root {
+  /* Colores */
+  --color-fondo: #14100c;
+  --color-fondo-panel: #241c14;
+  --color-dorado: #d4af37;
+  --color-borgona: #7a1f2b;
+  --color-texto-claro: #f0e6d2;
+  --color-texto-oscuro: #201a12;
+  --color-borde: #6b5636;
+
+  /* Tipografía */
+  --fuente-titulos: 'Cinzel', serif;
+  --fuente-texto: 'EB Garamond', serif;
+
+  /* Espaciado */
+  --espacio-sm: 0.5rem;
+  --espacio-md: 1rem;
+  --espacio-lg: 2rem;
+}

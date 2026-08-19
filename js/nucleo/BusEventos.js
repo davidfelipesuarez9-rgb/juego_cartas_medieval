@@ -1,36 +1,28 @@
-// EventBus: permite que distintas partes del juego se comuniquen
+// BusEventos: permite que distintas partes del juego se comuniquen
 // sin conocerse directamente entre sí (patrón Observer / pub-sub).
-class EventBus {
+class BusEventos {
   constructor() {
-    // listeners guarda, por cada nombre de evento, la lista de funciones
-    // que quieren ser avisadas cuando ese evento ocurra.
-    // Ejemplo de forma: { "card:damaged": [funcion1, funcion2] }
-    this.listeners = {};
+    this.suscriptores = {};
   }
 
-  // Suscribirse a un evento: "cuando ocurra X, ejecuta esta función".
-  on(eventName, callback) {
-    if (!this.listeners[eventName]) {
-      this.listeners[eventName] = [];
+  suscribir(nombreEvento, funcion) {
+    if (!this.suscriptores[nombreEvento]) {
+      this.suscriptores[nombreEvento] = [];
     }
-    this.listeners[eventName].push(callback);
+    this.suscriptores[nombreEvento].push(funcion);
   }
 
-  // Cancelar una suscripción (útil para no acumular funciones "zombis").
-  off(eventName, callback) {
-    if (!this.listeners[eventName]) return;
-    this.listeners[eventName] = this.listeners[eventName].filter(
-      (listener) => listener !== callback
+  cancelarSuscripcion(nombreEvento, funcion) {
+    if (!this.suscriptores[nombreEvento]) return;
+    this.suscriptores[nombreEvento] = this.suscriptores[nombreEvento].filter(
+      (suscriptor) => suscriptor !== funcion
     );
   }
 
-  // Avisar a todos los suscritos de que un evento ocurrió, con datos opcionales.
-  emit(eventName, data) {
-    if (!this.listeners[eventName]) return;
-    this.listeners[eventName].forEach((callback) => callback(data));
+  emitir(nombreEvento, datos) {
+    if (!this.suscriptores[nombreEvento]) return;
+    this.suscriptores[nombreEvento].forEach((funcion) => funcion(datos));
   }
 }
 
-// Exportamos UNA instancia ya creada (singleton), no la clase.
-// Así, todo el proyecto comparte el mismo bus de eventos.
-export const eventBus = new EventBus();
+export const busEventos = new BusEventos();

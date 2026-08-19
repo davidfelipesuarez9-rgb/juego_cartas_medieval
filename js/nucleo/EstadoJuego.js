@@ -1,35 +1,35 @@
-import { eventBus } from './EventBus.js';
+import { busEventos } from './BusEventos.js';
 
-class GameState {
+class EstadoJuego {
   constructor() {
-    this.state = {
-      player: null,
-      machine: null,
-      currentTurn: null,
-      turnNumber: 0,
-      isBattleActive: false,
+    this.estado = {
+      jugador: null,
+      maquina: null,
+      turnoActual: null,
+      numeroTurno: 0,
+      batallaActiva: false,
     };
   }
 
-  get(key) {
-    return this.state[key];
+  obtener(clave) {
+    return this.estado[clave];
   }
 
-  set(key, value) {
-    this.state[key] = value;
-    eventBus.emit('state:changed', { key, value });
+  establecer(clave, valor) {
+    this.estado[clave] = valor;
+    busEventos.emitir('estado:cambio', { clave, valor });
   }
 
-  reset() {
-    this.state = {
-      player: null,
-      machine: null,
-      currentTurn: null,
-      turnNumber: 0,
-      isBattleActive: false,
+  reiniciar() {
+    this.estado = {
+      jugador: null,
+      maquina: null,
+      turnoActual: null,
+      numeroTurno: 0,
+      batallaActiva: false,
     };
-    eventBus.emit('state:reset');
+    busEventos.emitir('estado:reinicio');
   }
 }
 
-export const gameState = new GameState();
+export const estadoJuego = new EstadoJuego();

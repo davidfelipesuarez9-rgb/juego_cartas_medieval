@@ -184,5 +184,66 @@ export const cartas = [
     dano: 32,
     habilidades: ['flecha-certera', 'lluvia-de-flechas'],
     descripcion: 'Ha cazado bajo un cielo sin sol durante tanto tiempo que ya no recuerda el calor del día.'
+  },
+    // ===== MAGOS =====
+  {
+    id: 'aprendiz-nigromancia',
+    nombre: 'Aprendiz de Nigromancia',
+    emoji: '📖',
+    tipo: 'mago',
+    rareza: 'comun',
+    vidaMaxima: 62,
+    defensa: 5,
+    dano: 26,
+    habilidades: ['bola-de-fuego'],
+    descripcion: 'Apenas domina los primeros hechizos, pero ya disfruta demasiado de su poder destructivo.'
+  },
+  {
+    id: 'brujo-cenizas',
+    nombre: 'Brujo de Cenizas',
+    emoji: '🔥',
+    tipo: 'mago',
+    rareza: 'comun',
+    vidaMaxima: 66,
+    defensa: 6,
+    dano: 28,
+    habilidades: ['bola-de-fuego'],
+    descripcion: 'Vive entre las ruinas que él mismo ha creado; el fuego lo obedece como a un viejo amigo.'
+  },
+  {
+    id: 'invocador-sombras',
+    nombre: 'Invocador de Sombras',
+    emoji: '👁️',
+    tipo: 'mago',
+    rareza: 'rara',
+    vidaMaxima: 70,
+    defensa: 7,
+    dano: 31,
+    habilidades: ['bola-de-fuego', 'debilitar'],
+    descripcion: 'Susurra pactos con entidades que nadie más puede ver, y ellas responden a su llamado.'
+  },
+  {
+    id: 'hechicera-pantano-negro',
+    nombre: 'Hechicera del Pantano Negro',
+    emoji: '🐍',
+    tipo: 'mago',
+    rareza: 'rara',
+    vidaMaxima: 72,
+    defensa: 8,
+    dano: 33,
+    habilidades: ['drenar-vida', 'debilitar'],
+    descripcion: 'Cada hechizo que lanza le roba la fuerza a su enemigo para dársela a ella misma.'
+  },
+  {
+    id: 'archimago-voz-muerta',
+    nombre: 'Archimago de la Voz Muerta',
+    emoji: '💜',
+    tipo: 'mago',
+    rareza: 'epica',
+    vidaMaxima: 80,
+    defensa: 10,
+    dano: 37,
+    habilidades: ['bola-de-fuego', 'drenar-vida'],
+    descripcion: 'Habla en un idioma que murió hace mil años, y aun así el fuego que invoca sigue entendiendo cada palabra.'
   }
 ];

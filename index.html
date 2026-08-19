@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reinos en Batalla</title>
   <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/paginas/coleccion.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +43,7 @@
     </section>
 
     <section id="pantalla-menu" data-pantalla="menu" aria-labelledby="titulo-menu" hidden>
+      <button type="button" data-navegar="coleccion">Colección</button>
       <h2 id="titulo-menu">Menú Principal</h2>
       <nav aria-label="Menú principal del juego">
         <button type="button" data-navegar="coleccion">Mis Cartas</button>
@@ -53,9 +55,14 @@
     </section>
 
     <section id="pantalla-coleccion" data-pantalla="coleccion" aria-labelledby="titulo-coleccion" hidden>
-      <h2 id="titulo-coleccion">Colección de Cartas</h2>
-      <button type="button" data-navegar="menu">Volver al menú</button>
-    </section>
+  <h2 id="titulo-coleccion">Elige tu equipo</h2>
+  <p id="contador-seleccion" role="status">0 / 5 cartas seleccionadas</p>
+  <div id="grilla-cartas" class="grilla-cartas"></div>
+  <nav>
+    <button type="button" data-navegar="menu">Volver</button>
+    <button type="button" id="btn-confirmar-equipo" disabled>Confirmar equipo</button>
+  </nav>
+</section>
 
     <section id="pantalla-batalla" data-pantalla="batalla" aria-labelledby="titulo-batalla" hidden>
       <h2 id="titulo-batalla">Batalla</h2>

@@ -6,21 +6,13 @@ interfazBienvenida.inicializar();
 
 import { Carta } from './modelos/Carta.js';
 
-// Prueba temporal del modelo Carta (la quitamos cuando construyamos el catálogo)
-const cartaPrueba = new Carta({
-  id: 1,
-  nombre: 'Caballero de la Muerte',
-  simbolo: '💀',
-  vida: 100,
-  defensa: 40,
-  dano: 30,
-  tipo: 'guerrero',
-  rareza: 'comun',
-  habilidades: ['golpe-real'],
-  descripcion: 'Un guerrero caido que sigue luchando mas alla de la muerte.',
-});
+import { cartas } from './datos/cartas.js';
 
-cartaPrueba.recibirDano(35);
-console.log(cartaPrueba);
-console.log('Porcentaje de vida:', cartaPrueba.porcentajeVida);
-console.log('¿Esta derrotada?', cartaPrueba.estaDerrotada);
+console.log('Cartas cargadas:', cartas.length);
+console.log('Primera carta:', cartas[0]);
+
+import { obtenerHabilidadPorId } from './datos/habilidades.js';
+
+console.log(obtenerHabilidadPorId('golpe-real'));
+console.log(obtenerHabilidadPorId('golpe-critico'));
+console.log(obtenerHabilidadPorId('no-existe'));
